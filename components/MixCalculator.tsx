@@ -41,10 +41,22 @@ export default function MixCalculator() {
         "border-black/10 bg-white focus:ring-black/10 " +
         "dark:border-white/10 dark:bg-zinc-950 dark:focus:ring-white/10";
 
+    const copyText = rounded === null ? "" : `${liters} L @ 1:${x} → ${rounded} ml oil`;
+
+    async function copy() {
+        try {
+            await navigator.clipboard.writeText(copyText);
+        } catch {
+            // ignore
+        }
+    }
+
     return (
         <div className="space-y-5">
             <div className="space-y-2">
-                <label className="text-sm font-medium">Fuel (liters)</label>
+                <label className="text-sm font-medium text-zinc-700 dark:text-zinc-200">
+                    Fuel (liters)
+                </label>
                 <input
                     className={inputClass}
                     type="number"
@@ -56,7 +68,7 @@ export default function MixCalculator() {
             </div>
 
             <div className="space-y-2">
-                <div className="text-sm font-medium">Mode</div>
+                <div className="text-sm font-medium text-zinc-700 dark:text-zinc-200">Mode</div>
                 <div className="flex gap-3">
                     <button
                         type="button"
@@ -64,8 +76,8 @@ export default function MixCalculator() {
                         className={
                             "rounded-xl px-3 py-2 text-sm border transition " +
                             (mode === "preset"
-                                ? "border-black/20 bg-zinc-900 text-white dark:border-white/20 dark:bg-white dark:text-zinc-900"
-                                : "border-black/10 bg-white text-zinc-900 dark:border-white/10 dark:bg-zinc-950 dark:text-zinc-50")
+                                ? "border-black/20 bg-zinc-900 text-white hover:brightness-95 active:brightness-90 dark:border-white/20 dark:bg-white dark:text-zinc-900"
+                                : "border-black/10 bg-white text-zinc-900 hover:bg-zinc-50 active:bg-zinc-100 dark:border-white/10 dark:bg-zinc-950 dark:text-zinc-50 dark:hover:bg-white/5")
                         }
                     >
                         Preset
@@ -76,8 +88,8 @@ export default function MixCalculator() {
                         className={
                             "rounded-xl px-3 py-2 text-sm border transition " +
                             (mode === "custom"
-                                ? "border-black/20 bg-zinc-900 text-white dark:border-white/20 dark:bg-white dark:text-zinc-900"
-                                : "border-black/10 bg-white text-zinc-900 dark:border-white/10 dark:bg-zinc-950 dark:text-zinc-50")
+                                ? "border-black/20 bg-zinc-900 text-white hover:brightness-95 active:brightness-90 dark:border-white/20 dark:bg-white dark:text-zinc-900"
+                                : "border-black/10 bg-white text-zinc-900 hover:bg-zinc-50 active:bg-zinc-100 dark:border-white/10 dark:bg-zinc-950 dark:text-zinc-50 dark:hover:bg-white/5")
                         }
                     >
                         Custom
@@ -87,7 +99,7 @@ export default function MixCalculator() {
 
             {mode === "preset" ? (
                 <div className="space-y-2">
-                    <label className="text-sm font-medium">Preset</label>
+                    <label className="text-sm font-medium text-zinc-700 dark:text-zinc-200">Preset</label>
                     <select
                         className={inputClass}
                         value={presetId}
@@ -102,7 +114,9 @@ export default function MixCalculator() {
                 </div>
             ) : (
                 <div className="space-y-2">
-                    <label className="text-sm font-medium">Custom ratio (1 : X)</label>
+                    <label className="text-sm font-medium text-zinc-700 dark:text-zinc-200">
+                        Custom ratio (1 : X)
+                    </label>
                     <input
                         className={inputClass}
                         type="number"
@@ -112,25 +126,37 @@ export default function MixCalculator() {
                         value={customX}
                         onChange={(e) => setCustomX(Number(e.target.value))}
                     />
-                    <div className="text-xs text-zinc-600 dark:text-zinc-400">
-                        Example: 50 means 1:50.
-                    </div>
+                    <div className="text-xs text-zinc-600 dark:text-zinc-400">Example: 50 means 1:50.</div>
                 </div>
             )}
 
-            <div className="rounded-2xl border border-black/10 bg-black/[0.03] p-4 dark:border-white/10 dark:bg-white/[0.06]">
+            <div className="rounded-2xl border border-black/10 bg-zinc-50 p-4 dark:border-white/10 dark:bg-white/[0.06]">
                 <div className="text-sm text-zinc-600 dark:text-zinc-300">
-                    Selected ratio: <span className="font-medium text-zinc-900 dark:text-zinc-50">1:{x}</span>
+                    Selected ratio:{" "}
+                    <span className="font-medium text-zinc-900 dark:text-zinc-50">1:{x}</span>
                 </div>
 
                 {error ? (
                     <div className="mt-2 text-sm text-red-600">{error}</div>
                 ) : (
-                    <div className="mt-2 flex items-baseline justify-between gap-4">
+                    <div className="mt-2 flex items-center justify-between gap-4">
                         <div className="text-lg">
                             Oil needed: <span className="font-semibold">{rounded} ml</span>
                         </div>
-                        <div className="text-xs text-zinc-600 dark:text-zinc-400">{oilMl?.toFixed(1)} ml exact</div>
+
+                        <div className="flex items-center gap-3">
+                            <div className="text-xs text-zinc-600 dark:text-zinc-400">
+                                {oilMl?.toFixed(1)} ml exact
+                            </div>
+                            <button
+                                type="button"
+                                onClick={copy}
+                                disabled={rounded === null}
+                                className="rounded-xl border border-black/10 bg-white px-3 py-2 text-sm hover:bg-zinc-50 active:bg-zinc-100 disabled:opacity-50 dark:border-white/10 dark:bg-zinc-950 dark:hover:bg-white/5 dark:active:bg-white/10"
+                            >
+                                Copy
+                            </button>
+                        </div>
                     </div>
                 )}
             </div>
