@@ -1,0 +1,72 @@
+{
+    "app": {
+      "title": "2T Oil Mix",
+      "subtitle": "Presets for classic 2-stroke engines + custom ratios."
+    },
+    "fuel": {
+      "label": "Fuel",
+      "unit": "liters"
+    },
+    "mode": {
+      "label": "Mode",
+      "preset": "Preset",
+      "custom": "Custom"
+    },
+    "preset": {
+      "label": "Preset"
+    },
+    "custom": {
+      "label": "Custom ratio",
+      "hint": "Example: 50 means 1:50."
+    },
+    "result": {
+      "selectedRatio": "Selected ratio",
+      "oilNeeded": "Oil needed",
+      "exact": "Exact"
+    },
+    "actions": {
+      "copy": "Copy",
+      "share": "Share",
+      "reset": "Reset"
+    },
+    "toast": {
+      "copied": "Copied!",
+      "copyFailed": "Copy failed"
+    },
+    "footer": {
+      "disclaimer": "Results are for convenience. Always follow your engine/oil manufacturer recommendations."
+    },
+    "madeBy": "Made by {name}",
+    "calc": {
+        "fuelLabel": "Fuel",
+        "fuelUnit": "liters",
+        "fuelPlaceholder": "e.g. 5",
+        "modeLabel": "Mode",
+        "preset": "Preset",
+        "custom": "Custom",
+        "presetLabel": "Preset",
+        "presetHint": "Uses ratio 1:{x}.",
+        "presetSelectHint": "Select a preset.",
+        "customLabel": "Custom ratio",
+        "customHint": "Example: 50 means 1:50.",
+        "customPlaceholder": "e.g. 50",
+        "selectedRatio": "Selected ratio",
+        "formulaHint": "Oil = Fuel ÷ X (in liters → ml)",
+        "reset": "Reset",
+        "oilNeeded": "Oil needed",
+        "exact": "Exact: {ml} ml",
+        "copy": "Copy",
+        "share": "Share",
+        "toastCopied": "Copied!",
+        "toastCopyFailed": "Copy failed",
+        "toastReset": "Reset",
+        "errors": {
+          "fuelMissing": "Enter a fuel amount.",
+          "fuelNonPositive": "Fuel must be > 0.",
+          "ratioMissing": "Enter a ratio.",
+          "ratioRange": "Ratio X should be between 10 and 200."
+        },
+        "copyText": "{liters} L @ 1:{x} → {ml} ml oil"
+      }
+  }
+  

@@ -1,0 +1,72 @@
+{
+    "app": {
+      "title": "2T Öl-Mix",
+      "subtitle": "Presets für klassische 2-Takter + eigene Mischungsverhältnisse."
+    },
+    "fuel": {
+      "label": "Kraftstoff",
+      "unit": "Liter"
+    },
+    "mode": {
+      "label": "Modus",
+      "preset": "Preset",
+      "custom": "Custom"
+    },
+    "preset": {
+      "label": "Vorlage"
+    },
+    "custom": {
+      "label": "Eigenes Verhältnis",
+      "hint": "Beispiel: 50 bedeutet 1:50."
+    },
+    "result": {
+      "selectedRatio": "Gewähltes Verhältnis",
+      "oilNeeded": "Benötigtes Öl",
+      "exact": "Exakt"
+    },
+    "actions": {
+      "copy": "Kopieren",
+      "share": "Teilen",
+      "reset": "Zurücksetzen"
+    },
+    "toast": {
+      "copied": "Kopiert!",
+      "copyFailed": "Kopieren fehlgeschlagen"
+    },
+    "footer": {
+      "disclaimer": "Ergebnisse dienen nur zur Orientierung. Beachte immer die Angaben von Motor-/Ölhersteller."
+    },
+    "madeBy": "Made by {name}",
+    "calc": {
+        "fuelLabel": "Kraftstoff",
+        "fuelUnit": "Liter",
+        "fuelPlaceholder": "z.B. 5",
+        "modeLabel": "Modus",
+        "preset": "Preset",
+        "custom": "Custom",
+        "presetLabel": "Vorlage",
+        "presetHint": "Verhältnis 1:{x}.",
+        "presetSelectHint": "Bitte eine Vorlage wählen.",
+        "customLabel": "Eigenes Verhältnis",
+        "customHint": "Beispiel: 50 bedeutet 1:50.",
+        "customPlaceholder": "z.B. 50",
+        "selectedRatio": "Gewähltes Verhältnis",
+        "formulaHint": "Öl = Kraftstoff ÷ X (in Liter → ml)",
+        "reset": "Zurücksetzen",
+        "oilNeeded": "Benötigtes Öl",
+        "exact": "Exakt: {ml} ml",
+        "copy": "Kopieren",
+        "share": "Teilen",
+        "toastCopied": "Kopiert!",
+        "toastCopyFailed": "Kopieren fehlgeschlagen",
+        "toastReset": "Zurückgesetzt",
+        "errors": {
+          "fuelMissing": "Bitte eine Kraftstoffmenge eingeben.",
+          "fuelNonPositive": "Kraftstoff muss > 0 sein.",
+          "ratioMissing": "Bitte ein Verhältnis eingeben.",
+          "ratioRange": "X muss zwischen 10 und 200 liegen."
+        },
+        "copyText": "{liters} L @ 1:{x} → {ml} ml Öl"
+      }
+  }
+  
